@@ -1,119 +1,132 @@
 <!doctype html>
 <html>
-	<head>
-		<title>Empty Line Chart Example | chartjs-plugin-empty-overlay</title>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.5/Chart.bundle.js"></script>
-		<script src="../dist/chartjs-plugin-empty-overlay.js"></script>
-		<script src="utils.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<style>
-			canvas {
-				-moz-user-select: none;
-				-webkit-user-select: none;
-				-ms-user-select: none;
-			}
-			#wrapper {
-				margin-top: 144px;
-				width:100%;
-			}
-			#wrapper > div {
-				margin: 0 auto;
-				vertical-align: middle;
-			}
-			#wrapper .head,
-			#wrapper .foot {
-				text-align: center;
-				padding-bottom: 128px;
-			}
-		</style>
-	</head>
-	<body>
-		<div id="start"></div>
-		<div id="header">
-			<h1>chartjs-plugin-empty-overlay</h1>
-			<h2>Empty Line Chart Example</h2>
-			<a class="btn" href="index.html"><i class="fa fa-chevron-left"></i></a>
-			<a class="btn btn-style_1" href="https://github.com/neverbounce/chartjs-plugin-empty-overlay#configuration"><i class="fa fa-book"></i> Documentation</a>
-		</div>
-		<div id="wrapper">
-			<div class="chart">
-				<h3>Zero Value Datasets</h3>
-				<p>This chart contains 3 data sets all containing zero based values.</p>
-				<canvas id="canvas_0" height="320" width="512"></canvas>
-				<button type="button" onclick="addData(0)">Add Datasets</button>
-				<button type="button" onclick="addZeroDatasets(0)">Add Zero Datasets</button>
-				<button type="button" onclick="removeAllDatasets(0)">Remove Datasets</button>
-			</div>
-			<div class="chart">
-				<h3>No Datasets</h3>
-				<p>This chart contains an empty dataset array.</p>
-				<canvas id="canvas_1" height="320" width="512"></canvas>
-				<button type="button" onclick="addData(1)">Add Datasets</button>
-				<button type="button" onclick="addZeroDatasets(1)">Add Zero Datasets</button>
-				<button type="button" onclick="removeAllDatasets(1)">Remove Datasets</button>
-			</div>
-			<div class="chart">
-				<h3>Initially Contains Data</h3>
-				<p>This chart contains data when the page is loaded.</p>
-				<canvas id="canvas_2" height="320" width="512"></canvas>
-				<button type="button" onclick="addData(2)">Add Datasets</button>
-				<button type="button" onclick="addZeroDatasets(2)">Add Zero Datasets</button>
-				<button type="button" onclick="removeAllDatasets(2)">Remove Datasets</button>
-			</div>
-			<div class="foot"><a class="button" href="#start" onclick="restart()"> <i class="fa fa-refresh"></i> Restart</a></div>
-		</div>
+<head>
+    <title>Empty Line Chart Example | chartjs-plugin-empty-overlay</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.5/Chart.bundle.js"></script>
+    <script src="../dist/chartjs-plugin-empty-overlay.js"></script>
+    <script src="utils.js"></script>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
 
-		<script>
-			window.onload = function() {
+        #wrapper {
+            margin-top: 144px;
+            width: 100%;
+        }
 
-			    // Line Chart
-				var options = Samples.utils.defaultLineOptions();
-				var canvas0 = document.getElementById("canvas_0");
-				var canvas1 = document.getElementById("canvas_1");
-				var canvas2 = document.getElementById("canvas_2");
+        #wrapper > div {
+            margin: 0 auto;
+            vertical-align: middle;
+        }
 
-                window.chart = [];
+        #wrapper .head,
+        #wrapper .foot {
+            text-align: center;
+            padding-bottom: 128px;
+        }
+    </style>
+</head>
+<body>
+<div id="start"></div>
+<div id="header">
+    <h1>chartjs-plugin-empty-overlay</h1>
+    <h2>Empty Line Chart Example</h2>
+    <a class="btn" href="index.html"><i class="fa fa-chevron-left"></i></a>
+    <a class="btn btn-style_1"
+       href="https://github.com/neverbounce/chartjs-plugin-empty-overlay#configuration"><i
+            class="fa fa-book"></i> Documentation</a>
+</div>
+<div id="wrapper">
+    <div class="chart">
+        <h3>Zero Value Datasets</h3>
+        <p>This chart contains 3 data sets all containing zero based values.</p>
+        <canvas id="canvas_0" height="320" width="512"></canvas>
+        <button type="button" onclick="addData(0)">Add Datasets</button>
+        <button type="button" onclick="addZeroDatasets(0)">Add Zero Datasets
+        </button>
+        <button type="button" onclick="removeAllDatasets(0)">Remove Datasets
+        </button>
+    </div>
+    <div class="chart">
+        <h3>No Datasets</h3>
+        <p>This chart contains an empty dataset array.</p>
+        <canvas id="canvas_1" height="320" width="512"></canvas>
+        <button type="button" onclick="addData(1)">Add Datasets</button>
+        <button type="button" onclick="addZeroDatasets(1)">Add Zero Datasets
+        </button>
+        <button type="button" onclick="removeAllDatasets(1)">Remove Datasets
+        </button>
+    </div>
+    <div class="chart">
+        <h3>Initially Contains Data</h3>
+        <p>This chart contains data when the page is loaded.</p>
+        <canvas id="canvas_2" height="320" width="512"></canvas>
+        <button type="button" onclick="addData(2)">Add Datasets</button>
+        <button type="button" onclick="addZeroDatasets(2)">Add Zero Datasets
+        </button>
+        <button type="button" onclick="removeAllDatasets(2)">Remove Datasets
+        </button>
+    </div>
+    <div class="foot"><a class="button" href="#start" onclick="restart()"> <i
+            class="fa fa-refresh"></i> Restart</a></div>
+</div>
 
-                window.chart[0] = new Chart(canvas0.getContext("2d"), {
-					type: 'line',
-					options: options,
-					data: Samples.utils.generateLineDataZero()
-				});
+<script>
+    window.onload = function () {
 
-                window.chart[1] = new Chart(canvas1.getContext("2d"), {
-                    type: 'line',
-                    options: options,
-                    data: Samples.utils.generateLineNoData()
-                });
+        // Line Chart
+        var options = Samples.utils.defaultLineOptions();
+        var canvas0 = document.getElementById("canvas_0");
+        var canvas1 = document.getElementById("canvas_1");
+        var canvas2 = document.getElementById("canvas_2");
 
-                window.chart[2] = new Chart(canvas2.getContext("2d"), {
-                    type: 'line',
-                    options: options,
-                    data: Samples.utils.generateLineData()
-                });
-			};
+        window.chart = [];
 
-			function addData(i) {
-				chart[i].config.data = Samples.utils.generateLineData();
-				chart[i].update();
-            }
+        window.chart[0] = new Chart(canvas0.getContext("2d"), {
+            type: 'line',
+            options: options,
+            data: Samples.utils.generateLineDataZero()
+        });
 
-            function addZeroDatasets(i) {
-                chart[i].config.data = Samples.utils.generateLineDataZero();
-                chart[i].update();
-            }
+        window.chart[1] = new Chart(canvas1.getContext("2d"), {
+            type: 'line',
+            options: options,
+            data: Samples.utils.generateLineNoData()
+        });
 
-            function removeAllDatasets(i) {
-                chart[i].config.data = Samples.utils.generateLineNoData();
-                chart[i].update();
-            }
+        window.chart[2] = new Chart(canvas2.getContext("2d"), {
+            type: 'line',
+            options: options,
+            data: Samples.utils.generateLineData()
+        });
+    };
 
-			function restart() {
-				setTimeout(function() {
-					location.reload();
-				});
-			}
-		</script>
-	</body>
+    function addData(i) {
+        chart[i].config.data = Samples.utils.generateLineData();
+        chart[i].update();
+    }
+
+    function addZeroDatasets(i) {
+        chart[i].config.data = Samples.utils.generateLineDataZero();
+        chart[i].update();
+    }
+
+    function removeAllDatasets(i) {
+        chart[i].config.data = Samples.utils.generateLineNoData();
+        chart[i].update();
+    }
+
+    function restart() {
+        setTimeout(function () {
+            location.reload();
+        });
+    }
+</script>
+</body>
 </html>

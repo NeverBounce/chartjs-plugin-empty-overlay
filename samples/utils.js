@@ -1,51 +1,51 @@
 var Samples = window.Samples || {};
 Samples.utils = {
-	defaultBarOptions: function() {
-		return {
-			responsive: false,
-			legend: {
-				position: 'top'
-			},
-			animation: {
-				duration: 2000
-			}
-		};
-	},
+    defaultBarOptions: function () {
+        return {
+            responsive: false,
+            legend: {
+                position: 'top'
+            },
+            animation: {
+                duration: 2000
+            }
+        };
+    },
 
-	generateBarData: function() {
-		var datasets = [];
-		var labels = [];
-		var ilen = 4;
-		var jlen = 4;
-		var dataset;
-		var i, j;
+    generateBarData: function () {
+        var datasets = [];
+        var labels = [];
+        var ilen = 4;
+        var jlen = 4;
+        var dataset;
+        var i, j;
 
-		for (i=0; i<ilen; ++i) {
-			dataset = {data: [], backgroundColor: [], label: 'DS' + i};
-			for (j=0; j<jlen; ++j) {
-				dataset.data.push(Math.round(Math.random() * 100));
-				dataset.backgroundColor.push(
-					'rgba(' +
-						(((j+i+1)*16)%256) + ',' +
-						(((j+i+2)*32)%256) + ',' +
-						(((j+i+3)*64)%256) + ', 0.32)'
-				);
-			}
+        for (i = 0; i < ilen; ++i) {
+            dataset = {data: [], backgroundColor: [], label: 'DS' + i};
+            for (j = 0; j < jlen; ++j) {
+                dataset.data.push(Math.round(Math.random() * 100));
+                dataset.backgroundColor.push(
+                    'rgba(' +
+                    (((j + i + 1) * 16) % 256) + ',' +
+                    (((j + i + 2) * 32) % 256) + ',' +
+                    (((j + i + 3) * 64) % 256) + ', 0.32)'
+                );
+            }
 
-			datasets.push(dataset);
-		}
+            datasets.push(dataset);
+        }
 
-		for (j=0; j<jlen; ++j) {
-			labels.push('D' + i);
-		}
+        for (j = 0; j < jlen; ++j) {
+            labels.push('D' + i);
+        }
 
-		return {
-			datasets: datasets,
-			labels: labels
-		};
-	},
+        return {
+            datasets: datasets,
+            labels: labels
+        };
+    },
 
-    defaultLineOptions: function() {
+    defaultLineOptions: function () {
         return {
             responsive: true,
             legend: {
@@ -57,7 +57,7 @@ Samples.utils = {
         };
     },
 
-    generateLineData: function() {
+    generateLineData: function () {
         var datasets = [];
         var labels = [];
         var ilen = 3;
@@ -65,15 +65,15 @@ Samples.utils = {
         var dataset;
         var i, j;
 
-        for (i=0; i<ilen; ++i) {
+        for (i = 0; i < ilen; ++i) {
             dataset = {data: [], backgroundColor: [], label: 'DS' + i};
-            for (j=0; j<jlen; ++j) {
+            for (j = 0; j < jlen; ++j) {
                 dataset.data.push(Math.round(Math.random() * 100));
             }
 
-            let color = (((j+i+1)*16)%256) + ',' +
-                (((j+i+2)*32)%256) + ',' +
-                (((j+i+3)*64)%256);
+            let color = (((j + i + 1) * 16) % 256) + ',' +
+                (((j + i + 2) * 32) % 256) + ',' +
+                (((j + i + 3) * 64) % 256);
 
             dataset.borderColor = 'rgba(' + color + ', .68)';
             dataset.backgroundColor = 'rgba(' + color + ', 0.32)';
@@ -81,7 +81,7 @@ Samples.utils = {
             datasets.push(dataset);
         }
 
-        for (j=0; j<jlen; ++j) {
+        for (j = 0; j < jlen; ++j) {
             labels.push(j);
         }
 
@@ -91,7 +91,7 @@ Samples.utils = {
         };
     },
 
-    generateLineDataZero: function() {
+    generateLineDataZero: function () {
         var datasets = [];
         var labels = [];
         var ilen = 3;
@@ -99,15 +99,15 @@ Samples.utils = {
         var dataset;
         var i, j;
 
-        for (i=0; i<ilen; ++i) {
+        for (i = 0; i < ilen; ++i) {
             dataset = {data: [], backgroundColor: [], label: 'DS' + i};
-            for (j=0; j<jlen; ++j) {
+            for (j = 0; j < jlen; ++j) {
                 dataset.data.push(0);
             }
 
-            let color = (((j+i+1)*16)%256) + ',' +
-                (((j+i+2)*32)%256) + ',' +
-                (((j+i+3)*64)%256);
+            let color = (((j + i + 1) * 16) % 256) + ',' +
+                (((j + i + 2) * 32) % 256) + ',' +
+                (((j + i + 3) * 64) % 256);
 
             dataset.borderColor = 'rgba(' + color + ', .68)';
             dataset.backgroundColor = 'rgba(' + color + ', 0.32)';
@@ -115,7 +115,7 @@ Samples.utils = {
             datasets.push(dataset);
         }
 
-        for (j=0; j<jlen; ++j) {
+        for (j = 0; j < jlen; ++j) {
             labels.push(j);
         }
 
@@ -125,7 +125,7 @@ Samples.utils = {
         };
     },
 
-    generateLineNoData: function() {
+    generateLineNoData: function () {
         var datasets = [];
         var labels = [];
         var ilen = 0;
@@ -133,16 +133,16 @@ Samples.utils = {
         var dataset;
         var i, j;
 
-        for (i=0; i<ilen; ++i) {
+        for (i = 0; i < ilen; ++i) {
             dataset = {data: [], backgroundColor: [], label: 'DS' + i};
-            for (j=0; j<jlen; ++j) {
+            for (j = 0; j < jlen; ++j) {
                 // dataset.data.push(Math.round(Math.random() * 100));
                 dataset.data.push(0);
             }
 
-            let color = (((j+i+1)*16)%256) + ',' +
-                (((j+i+2)*32)%256) + ',' +
-                (((j+i+3)*64)%256);
+            let color = (((j + i + 1) * 16) % 256) + ',' +
+                (((j + i + 2) * 32) % 256) + ',' +
+                (((j + i + 3) * 64) % 256);
 
             dataset.borderColor = 'rgba(' + color + ', .68)';
             dataset.backgroundColor = 'rgba(' + color + ', 0.32)';
@@ -150,7 +150,7 @@ Samples.utils = {
             datasets.push(dataset);
         }
 
-        for (j=0; j<jlen; ++j) {
+        for (j = 0; j < jlen; ++j) {
             labels.push(j);
         }
 
