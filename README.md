@@ -1,4 +1,4 @@
-# Defer initial chart updates
+# Display Overlay on Empty Charts
 
 [![npm](https://img.shields.io/npm/v/chartjs-plugin-empty-overlay.svg?style=flat-square)](https://npmjs.com/package/chartjs-plugin-empty-overlay) [![Travis](https://img.shields.io/travis/NeverBounce/chartjs-plugin-empty-overlay.svg?style=flat-square)](https://travis-ci.org/NeverBounce/chartjs-plugin-empty-overlay) [![Code Climate](https://img.shields.io/codeclimate/github/NeverBounce/chartjs-plugin-empty-overlay.svg?style=flat-square)](https://codeclimate.com/github/NeverBounce/chartjs-plugin-empty-overlay)
 
