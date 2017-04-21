@@ -31,7 +31,6 @@ var header = "/*!\n\
 gulp.task('build', buildTask);
 gulp.task('lint', lintTask);
 gulp.task('package', packageTask);
-gulp.task('bower', bowerTask);
 gulp.task('default', ['build']);
 
 function watch(glob, task) {
@@ -88,18 +87,4 @@ function packageTask() {
   // finally, create the zip archive
   .pipe(zip(package.name + '.zip'))
   .pipe(gulp.dest(outDir));
-}
-
-function bowerTask() {
-  var json = JSON.stringify({
-      name: package.name,
-      description: package.description,
-      homepage: package.homepage,
-      license: package.license,
-      version: package.version,
-      main: outDir + package.name + '.js'
-    }, null, 2);
-
-  return file('bower.json', json, { src: true })
-    .pipe(gulp.dest('./'));
 }

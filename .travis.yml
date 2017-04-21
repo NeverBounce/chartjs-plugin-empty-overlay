@@ -6,7 +6,6 @@ script:
 - gulp lint
 - gulp build
 - gulp package
-- gulp bower
 
 deploy:
 # Creates a tag containing dist files and bower.json
