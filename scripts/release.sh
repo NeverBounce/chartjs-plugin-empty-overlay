@@ -20,8 +20,6 @@ fi
 git remote add auth-origin https://$GITHUB_AUTH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
 git config --global user.email "$GITHUB_AUTH_EMAIL"
 git config --global user.name "NeverBounce"
-git checkout --detach --quiet
-git commit -m "Release $VERSION"
 git tag -a "v$VERSION" -m "Version $VERSION"
 git push -q auth-origin refs/tags/v$VERSION 2>/dev/null
 git remote rm auth-origin
