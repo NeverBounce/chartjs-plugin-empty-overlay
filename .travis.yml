@@ -22,9 +22,9 @@ deploy:
 - provider: releases
   api_key: $GITHUB_AUTH_TOKEN
   file:
-  - "./dist/chartjs-plugin-deferred.js"
-  - "./dist/chartjs-plugin-deferred.min.js"
-  - "./dist/chartjs-plugin-deferred.zip"
+  - "./dist/chartjs-plugin-empty-overlay.js"
+  - "./dist/chartjs-plugin-empty-overlay.min.js"
+  - "./dist/chartjs-plugin-empty-overlay.zip"
   skip_cleanup: true
   on:
     tags: true
