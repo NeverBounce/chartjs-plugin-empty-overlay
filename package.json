@@ -1,0 +1,33 @@
+{
+  "name": "chartjs-plugin-empty-overlay",
+  "homepage": "http://neverbounce.com",
+  "description": "Chart.js plugin to replace empty plots with a friendly placeholder",
+  "version": "0.2.0",
+  "license": "MIT",
+  "main": "src/plugin.js",
+  "contributors": [
+    {
+      "name" : "Mike Mollick",
+      "email" : "mike@neverbounce.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chartjs/chartjs-plugin-deferred.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.0",
+    "gulp-insert": "^0.5.0",
+    "gulp-file": "^0.3.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7",
+    "gulp-zip": "^3.2.0",
+    "merge2": "^1.0.2",
+    "path": "^0.12.7",
+    "yargs": "^4.7.1"
+  }
+}
