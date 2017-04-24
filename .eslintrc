@@ -46,7 +46,7 @@ rules:
   block-scoped-var: 0
   complexity: [2, 10]
   consistent-return: 0
-  curly: [2, all]
+  curly: [2, multi, consistent]
   default-case: 2
   dot-location: 0
   dot-notation: 2
@@ -141,7 +141,7 @@ rules:
   func-style: 0
   id-length: 0
   id-match: 0
-  indent: [2, tab]
+  indent: [2, 4]
   jsx-quotes: 0
   key-spacing: 2
   keyword-spacing: 2
