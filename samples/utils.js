@@ -47,7 +47,7 @@ Samples.utils = {
         var jlen = 3;
         var datasets = generateDataSet(ilen, jlen);
 
-        for (j = 0; j < jlen; ++j) {
+        for (var j = 0; j < jlen; ++j) {
             labels.push(j);
         }
 
@@ -63,7 +63,7 @@ Samples.utils = {
         var jlen = 3;
         var datasets = generateDataSet(ilen, jlen, true);
 
-        for (j = 0; j < jlen; ++j) {
+        for (var j = 0; j < jlen; ++j) {
             labels.push(j);
         }
 
