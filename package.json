@@ -2,7 +2,7 @@
   "name": "chartjs-plugin-empty-overlay",
   "homepage": "http://neverbounce.com",
   "description": "Chart.js plugin to replace empty plots with a friendly placeholder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "src/plugin.js",
   "contributors": [
