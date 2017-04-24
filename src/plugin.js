@@ -48,6 +48,10 @@
             helpers.extend(this, config);
         },
 
+        update: function(maxWidth, maxHeight, margins) {
+            console.log(maxWidth, maxHeight, margins);
+        },
+
         // Shared Methods
         isHorizontal: function () {
             return this.options.position === 'top' || this.options.position === 'bottom';
@@ -58,12 +62,13 @@
             var me = this;
             var ctx = me.ctx;
 
+            console.log(me);
             var globalDefault = Chart.defaults.global;
             var emptyOpts = me.options;
             var chartArea = me.chart.chartArea,
                 x = chartArea.left,
                 y = chartArea.top,
-                width = chartArea.right - chartArea.top,
+                width = chartArea.right - chartArea.left,
                 height = chartArea.bottom - chartArea.top,
                 textX = (x / 2) + (width / 2),
                 textY = y + (height / 2),
@@ -122,7 +127,7 @@
             }
         },
 
-        afterDraw: function (chartInstance) {
+        afterDatasetsDraw: function (chartInstance) {
 
             // Merge config
             var emptyOpts = chartInstance.options.emptyOverlay || {};
