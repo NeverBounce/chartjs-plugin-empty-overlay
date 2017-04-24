@@ -48,10 +48,6 @@
             helpers.extend(this, config);
         },
 
-        update: function(maxWidth, maxHeight, margins) {
-            console.log(maxWidth, maxHeight, margins);
-        },
-
         // Shared Methods
         isHorizontal: function () {
             return this.options.position === 'top' || this.options.position === 'bottom';
@@ -62,7 +58,6 @@
             var me = this;
             var ctx = me.ctx;
 
-            console.log(me);
             var globalDefault = Chart.defaults.global;
             var emptyOpts = me.options;
             var chartArea = me.chart.chartArea,
