@@ -1,6 +1,6 @@
 'use strict';
 
-(function () {
+(function() {
 
     var Chart = window.Chart;
     var helpers = Chart.helpers;
@@ -27,13 +27,13 @@
             model.isEmpty = true;
 
         // Filter down the datasets to determine if they contain non zero values
-        var filtered = datasets.map(function (element) {
-            var fltr = element.data.filter(function (ele) {
+        var filtered = datasets.map(function(element) {
+            var fltr = element.data.filter(function(ele) {
                 // Support data expressed as x,y coordinates as well as y only values
                 return ele.x ? (ele.x > 0) : (ele > 0);
             });
-            return fltr.length > 0
-        }).filter(function (element) {
+            return fltr.length > 0;
+        }).filter(function(element) {
             return element;
         });
 
@@ -44,17 +44,18 @@
 
         position: 'chartArea',
 
-        initialize: function (config) {
+        initialize: function(config) {
             helpers.extend(this, config);
         },
 
         // Shared Methods
-        isHorizontal: function () {
-            return this.options.position === 'top' || this.options.position === 'bottom';
+        isHorizontal: function() {
+            return this.options.position === 'top' ||
+                this.options.position === 'bottom';
         },
 
         // Actually draw the legend on the canvas
-        draw: function () {
+        draw: function() {
             var me = this;
             var ctx = me.ctx;
 
@@ -69,13 +70,19 @@
                 textY = y + (height / 2),
                 itemOrDefault = helpers.getValueOrDefault,
                 message = emptyOpts.message,
-                fontSizeOpt = itemOrDefault(emptyOpts.fontSize, globalDefault.defaultFontSize),
-                fontSize = (fontSizeOpt === 'auto' ? (Math.sqrt(width)) : fontSizeOpt),
-                fontStyle = itemOrDefault(emptyOpts.fontStyle, globalDefault.defaultFontStyle),
-                fontFamily = itemOrDefault(emptyOpts.fontFamily, globalDefault.defaultFontFamily),
+                fontSizeOpt = itemOrDefault(emptyOpts.fontSize,
+                    globalDefault.defaultFontSize),
+                fontSize = (fontSizeOpt === 'auto' ?
+                    (Math.sqrt(width)) :
+                    fontSizeOpt),
+                fontStyle = itemOrDefault(emptyOpts.fontStyle,
+                    globalDefault.defaultFontStyle),
+                fontFamily = itemOrDefault(emptyOpts.fontFamily,
+                    globalDefault.defaultFontFamily),
                 labelFont = helpers.fontString(fontSize, fontStyle, fontFamily);
 
-            ctx.fillStyle = itemOrDefault(emptyOpts.fillStyle, globalDefault.defaultColor);
+            ctx.fillStyle = itemOrDefault(emptyOpts.fillStyle,
+                globalDefault.defaultColor);
             ctx.fillRect(x, y, width, height);
 
             ctx.textAlign = 'center';
@@ -86,7 +93,8 @@
             ctx.strokeStyle = emptyOpts.fontStroke;
             ctx.strokeText(message, textX, textY, width);
 
-            ctx.fillStyle = itemOrDefault(emptyOpts.fontColor, globalDefault.defaultFontColor);
+            ctx.fillStyle = itemOrDefault(emptyOpts.fontColor,
+                globalDefault.defaultFontColor);
             ctx.fillText(message, textX, textY, width);
         },
     });
@@ -104,29 +112,32 @@
 
     // Register the emptyOverlay plugin
     Chart.plugins.register({
-        beforeInit: function (chartInstance) {
+        beforeInit: function(chartInstance) {
 
             // Merge config
             var emptyOpts = chartInstance.options.emptyOverlay || {};
-            emptyOpts = helpers.configMerge(Chart.defaults.global.emptyOverlay, emptyOpts);
+            emptyOpts = helpers.configMerge(Chart.defaults.global.emptyOverlay,
+                emptyOpts);
 
             // Add config and create object
             createNewEmptyOverlay(chartInstance, emptyOpts);
         },
 
-        beforeUpdate: function (chartInstance) {
-            var empty = isChartEmpty(chartInstance.config.data.datasets, chartInstance.emptyOverlay);
+        beforeUpdate: function(chartInstance) {
+            var empty = isChartEmpty(chartInstance.config.data.datasets,
+                chartInstance.emptyOverlay);
             if (empty) {
                 chartInstance.config.data.datasets = [];
                 chartInstance.config.data.labels = [];
             }
         },
 
-        afterDatasetsDraw: function (chartInstance) {
+        afterDatasetsDraw: function(chartInstance) {
 
             // Merge config
             var emptyOpts = chartInstance.options.emptyOverlay || {};
-            emptyOpts = helpers.configMerge(Chart.defaults.global.emptyOverlay, emptyOpts);
+            emptyOpts = helpers.configMerge(Chart.defaults.global.emptyOverlay,
+                emptyOpts);
 
             // Add config and create object if needed
             if (!chartInstance.emptyOverlay)
@@ -140,12 +151,14 @@
                 // Check if it's already rendered
                 if (!chartInstance.emptyOverlayBox) {
                     chartInstance.emptyOverlayBox = true;
-                    Chart.layoutService.addBox(chartInstance, chartInstance.emptyOverlay);
+                    Chart.layoutService.addBox(chartInstance,
+                        chartInstance.emptyOverlay);
                 }
             } else if (chartInstance.emptyOverlayBox) {
-                Chart.layoutService.removeBox(chartInstance, chartInstance.emptyOverlay);
+                Chart.layoutService.removeBox(chartInstance,
+                    chartInstance.emptyOverlay);
                 delete chartInstance.emptyOverlayBox;
             }
-        }
+        },
     });
 }());
