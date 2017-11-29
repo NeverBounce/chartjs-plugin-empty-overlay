@@ -54,6 +54,10 @@
                 this.options.position === 'bottom';
         },
 
+        // no-op
+        update: function() {
+        },
+
         // Actually draw the legend on the canvas
         draw: function() {
             var me = this;
