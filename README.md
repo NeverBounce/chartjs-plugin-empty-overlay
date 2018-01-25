@@ -6,6 +6,8 @@
 
 Requires [Chart.js](/chartjs/Chart.js/releases) **2.1.5** or later.
 
+![Example of overlay](example.png)
+
 ## Usage
 
 You can download the latest version of [chartjs-plugin-empty-overlay on GitHub](https://github.com/NeverBounce/chartjs-plugin-empty-overlay/releases/latest)
